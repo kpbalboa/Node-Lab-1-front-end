@@ -1,0 +1,12 @@
+<app-form class="addItem"></app-form>
+<div *ngFor='let item of shoppingCart'>
+    <p>Product: {{item.product}}</p>
+    <p>ID: {{item.id}}</p>
+    <p>Price: {{item.price}}</p>
+    
+    <form #form="ngForm" (change)="handleEdit(item.product, item.id, item.price, form.value.quantity)">
+    <input type="text" name="quantity" [ngModel]=item.quantity>
+    </form>
+    <button (click)="handleDelete(item.id)">DELETE</button>
+
+</div>

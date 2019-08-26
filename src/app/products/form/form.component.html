@@ -1,0 +1,7 @@
+<form #form="ngForm" (ngSubmit)="formSubmit(form.form.value.product,form.form.value.id,form.form.value.price,form.form.value.quantity)">
+    <input type="text" name="product" id="product" ngModel>
+    <input type="text" name="id" id="id" ngModel>
+    <input type="text" name="price" id="price" ngModel>
+    <input type="text" name="quantity" id="quantity" ngModel>
+<button>Submit</button>
+</form>
