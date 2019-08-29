@@ -16,16 +16,16 @@ export class CartService {
     return this.http.delete(`http://localhost:5000/shoppingCart/${id}`)
 
   }
-  addItem(product, id, price, quantity){
+  addItem(product, price, quantity){
     // if(parentClass === 'editForm'){
     //   console.log(id)
     //  return this.http.put(`http://localhost:5000/shoppingCart/${id}`, {product, id, price, quantity})
     // }else{
-    return this.http.post(`http://localhost:5000/shoppingCart`, {product, id, price, quantity})
+    return this.http.post(`http://localhost:5000/shoppingCart`, { product, price, quantity})
   // }
 }
-editItem(product, id, price, quantity){
-       return this.http.put(`http://localhost:5000/shoppingCart/${id}`, {product, id, price, quantity})
+editItem( id,product, price, quantity){
+       return this.http.put(`http://localhost:5000/shoppingCart/${id}`, { id, quantity})
 
 }
 }

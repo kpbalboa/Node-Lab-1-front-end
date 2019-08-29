@@ -17,9 +17,12 @@ export class ProductsComponent implements OnInit {
   handleDelete(id){
     this.cart.deleteItem(id).subscribe(response=> (this.shoppingCart=response));
   }
- handleEdit(product, price, id, quantity){
-   console.log(product, price, id , quantity)
-    this.cart.editItem(product, price, id, quantity).subscribe(response=> (this.shoppingCart=response));
+ handleEdit(id,product, price, quantity){
+   console.log( id ,product, price, quantity)
+    this.cart.editItem( id ,product, price, quantity).subscribe(response=> (this.shoppingCart=response));
 
+  }
+  update(){
+    this.cart.getAllItems().subscribe(response=> (this.shoppingCart=response));
   }
 }

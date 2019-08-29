@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import {CartService} from '../../cart.service';
 @Component({
   selector: 'app-form',
@@ -6,18 +6,23 @@ import {CartService} from '../../cart.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+  @Output() update= new EventEmitter <any>();
+
   shoppingCart: any;
   constructor(private cart: CartService) { }
 
   ngOnInit() {
   }
-  formSubmit(product, id, price, quantity){
+  formSubmit(product, price, quantity){
     // if(event.target.parentElement.classList.value === 'editForm'){
-    //   console.log(event.target)
-    //   this.cart.addItem(product, id, price, quantity, event.target.parentElement.classList.value).subscribe(response=> (this.shoppingCart=response));
+      this.cart.addItem(product, price, quantity).subscribe(response=> (this.shoppingCart=response));
     // }else{
     // this.cart.addItem(product, id, price, quantity, event.target.parentElement.classList.value).subscribe(response=> (this.shoppingCart=response));
     // }
+    // this.cart.getAllItems().subscribe(response=> (this.shoppingCart=response));
+    // window.location.reload();
+    this.update.emit()
+  
   }
 
 }
